@@ -1,0 +1,16 @@
+cd cvat
+docker compose up -d
+docker exec -it cvat_server /bin/bash
+
+#to make and run an container with name arukanss using all gpu (to check use 'nvidia-smi') using docker image named arukan
+docker run -it --name arukanss -v /home/okamotolab/work:/tf/work --gpus all -p 3000:3000 arukan
+
+#to run a docker container in the shell
+docker exec -it <container_name> sh
+
+#to run a docker container in the bash
+docker exec -it <container_name> bash
+
+docker container exec -it arukan /bin/bash
+cd ../tf/work
+pip install -r requirements.txt
